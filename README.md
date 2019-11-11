@@ -1,8 +1,4 @@
 # LoginApp
-
-Cascaron de un login que usaremos en la sección 10 de mi curso de Angular de cero a experto.
-
-https://www.udemy.com/angular-2-fernando-herrera/?couponCode=ANGULAR-10
-
+Login created with angular 8. Save users in firebase, implements token and security.
 
 ![](https://github.com/Klerith/angular-login-demoapp/blob/master/src/assets/images/demo.png?raw=true)
