@@ -1,49 +1,59 @@
-<div class="limiter">
+<div class="limiter animated fadeInLeft">
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90">
-            <form class="login100-form validate-form flex-sb flex-w">
+            <form (ngSubmit)="login( formRef )"
+                  #formRef="ngForm"
+                  class="login100-form validate-form flex-sb flex-w">
 
                 <span class="login100-form-title p-b-51">
                     Login
                 </span>
 
-                <!-- <span class="text-danger">El correo es obligatorio</span> -->
+                <span *ngIf="formRef.submitted && formRef.controls['email'].errors"
+                class="text-danger animated fadeIn">Email is required</span>
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" 
-                           type="text" 
-                           name="username" 
-                           placeholder="Username">
+                    <input class="input100"
+                           type="email"
+                           [(ngModel)]="user.email"
+                           name="email"
+                           placeholder="email"
+                           required>
 
                     <span class="focus-input100"></span>
                 </div>
-                
-                <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
+
+                <span *ngIf="formRef.submitted && formRef.controls['password'].errors"
+                class="text-danger animated fadeIn">Requires at least 6 digits</span>
                 <div class="wrap-input100 m-b-16" data-validate = "Password is required">
                     <input class="input100"
-                           type="password" 
-                           name="pass" 
-                           placeholder="Password">
+                           type="password"
+                           name="password"
+                           [(ngModel)]="user.password"
+                           placeholder="Password"
+                           required
+                           minlength="6">
                     <span class="focus-input100"></span>
                 </div>
-                
+
                 <div class="flex-sb-m w-full p-t-3 p-b-24">
                     <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <input [(ngModel)]="remember"
+                                class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                         <label class="label-checkbox100" for="ckb1">
-                            Recordar mi usuario
+                            Remember my user
                         </label>
                     </div>
 
                     <div>
                         <a routerLink="/registro" class="txt1">
-                            ¿No tienes cuenta?
+                            Do you haven't account?
                         </a>
                     </div>
                 </div>
 
                 <div class="container-login100-form-btn m-t-17">
                     <button class="login100-form-btn" type="submit">
-                        Ingresar
+                        Log In
                     </button>
                 </div>
 
